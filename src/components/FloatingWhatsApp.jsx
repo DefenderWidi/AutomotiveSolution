@@ -161,7 +161,7 @@ function FloatingWhatsApp() {
         ================================================= */}
 
         <div className="bg-white p-2.5">
-          {company.whatsapp.map((item, index) => (
+          {company.whatsapp.map((item) => (
             <a
               key={item.number}
               href={`https://wa.me/${item.number}?text=${encodeURIComponent(

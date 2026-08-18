@@ -1,0 +1,16 @@
+services:
+  automotive-solution:
+    build:
+      context: /opt/apps/AutomotiveSolution
+      dockerfile: Dockerfile
+    image: automotive-solution:latest
+    container_name: automotive-solution
+    restart: unless-stopped
+    ports:
+      - "3005:80"
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    external: true
