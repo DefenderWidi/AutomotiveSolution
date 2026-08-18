@@ -176,7 +176,7 @@ const partnerNetwork = [
 ]
 
 /* =========================================================
-   BUSINESS OPPORTUNITIES
+   BUSINESS OPPORTUNITY
 ========================================================= */
 
 const opportunities = [
@@ -255,6 +255,8 @@ function SectionHeading({
   )
 }
 
+/* arrow kanan */
+
 function ArrowIcon({ className = "h-4 w-4" }) {
   return (
     <svg
@@ -267,6 +269,48 @@ function ArrowIcon({ className = "h-4 w-4" }) {
         d="M5 12H19M13 6L19 12L13 18"
         stroke="currentColor"
         strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+/* arrow diagonal */
+
+function ArrowUpRightIcon({ className = "h-4 w-4" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M7 17L17 7M9 7H17V15"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+/* check */
+
+function CheckIcon({ className = "h-3 w-3" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M5 12.5L9.2 16.5L19 7"
+        stroke="currentColor"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -290,6 +334,7 @@ function App() {
         {/* =====================================================
             HERO
         ===================================================== */}
+
         <section
           id="home"
           className="relative scroll-mt-20 pt-28 sm:scroll-mt-24 sm:pt-36"
@@ -299,6 +344,7 @@ function App() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_.98fr] lg:gap-16">
               {/* HERO TEXT */}
+
               <div>
                 <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#365C7D]/20 bg-[#365C7D]/5 px-3.5 py-2 sm:px-4">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#365C7D]" />
@@ -345,6 +391,7 @@ function App() {
               </div>
 
               {/* HERO AUTOMOTIVE VISUAL */}
+
               <div className="relative">
                 <div className="absolute -right-16 top-12 h-48 w-48 rounded-full bg-[#365C7D]/10 blur-[80px]" />
 
@@ -368,6 +415,7 @@ function App() {
                   <div className="relative mt-4 min-h-[285px] sm:min-h-[350px] lg:min-h-[390px]">
                     <div className="absolute left-1/2 top-1/2 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#365C7D]/10 sm:h-[290px] sm:w-[290px]">
                       <div className="absolute inset-6 rounded-full border border-[#365C7D]/10" />
+
                       <div className="absolute inset-14 rounded-full border border-[#365C7D]/10" />
                     </div>
 
@@ -420,6 +468,7 @@ function App() {
             </div>
 
             {/* MAIN BUSINESS CATEGORIES */}
+
             <div className="mt-14 grid gap-3 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
               {mainCategories.map((item) => (
                 <article
@@ -431,8 +480,8 @@ function App() {
                       {item.number}
                     </span>
 
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#CBD1D8] text-[#365C7D]/50 transition group-hover:border-[#365C7D] group-hover:bg-[#365C7D] group-hover:text-white">
-                      ↗
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#CBD1D8] text-[#365C7D] transition duration-300 group-hover:border-[#365C7D] group-hover:bg-[#365C7D] group-hover:text-white">
+                      <ArrowUpRightIcon className="h-4 w-4" />
                     </span>
                   </div>
 
@@ -456,6 +505,7 @@ function App() {
         {/* =====================================================
             ABOUT
         ===================================================== */}
+
         <section
           id="about"
           className="scroll-mt-20 py-20 sm:scroll-mt-24 sm:py-28 lg:py-32"
@@ -499,6 +549,7 @@ function App() {
         {/* =====================================================
             SERVICES
         ===================================================== */}
+
         <section
           id="services"
           className="scroll-mt-20 bg-[#F6F7F8] py-20 sm:scroll-mt-24 sm:py-28 lg:py-32"
@@ -513,6 +564,7 @@ function App() {
 
             <div className="mt-12 grid gap-5 lg:grid-cols-2">
               {/* AUTOMOTIVE SERVICE */}
+
               <article className="rounded-[26px] border border-[#CBD1D8] bg-white p-5 sm:p-8">
                 <div className="flex items-start justify-between gap-5">
                   <div>
@@ -530,7 +582,7 @@ function App() {
                     </p>
                   </div>
 
-                  <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#365C7D]/8 text-[#365C7D] sm:flex">
+                  <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#365C7D]/[0.08] text-xs font-semibold text-[#365C7D] sm:flex">
                     01
                   </span>
                 </div>
@@ -554,6 +606,7 @@ function App() {
               </article>
 
               {/* AUTO DETAILING */}
+
               <article className="rounded-[26px] border border-[#CBD1D8] bg-white p-5 sm:p-8">
                 <div className="flex items-start justify-between gap-5">
                   <div>
@@ -571,7 +624,7 @@ function App() {
                     </p>
                   </div>
 
-                  <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#365C7D]/8 text-[#365C7D] sm:flex">
+                  <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#365C7D]/[0.08] text-xs font-semibold text-[#365C7D] sm:flex">
                     02
                   </span>
                 </div>
@@ -598,8 +651,9 @@ function App() {
         </section>
 
         {/* =====================================================
-            PRODUCTS + DISTRIBUTION
+            PRODUCTS
         ===================================================== */}
+
         <section
           id="products"
           className="scroll-mt-20 py-20 sm:scroll-mt-24 sm:py-28 lg:py-32"
@@ -624,8 +678,8 @@ function App() {
                   key={item}
                   className="group flex min-h-[64px] items-center justify-between rounded-2xl border border-[#CBD1D8] bg-white px-4 py-4 transition duration-300 hover:border-[#365C7D]/30 hover:bg-[#F6F8FA] sm:px-5"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-medium text-[#365C7D]">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <span className="shrink-0 text-[10px] font-medium text-[#365C7D]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
@@ -634,16 +688,20 @@ function App() {
                     </p>
                   </div>
 
-                  <span className="text-[#365C7D]/35 transition group-hover:text-[#365C7D]">
-                    ↗
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[#365C7D]/55 transition duration-300 group-hover:bg-[#365C7D]/10 group-hover:text-[#365C7D]">
+                    <ArrowUpRightIcon className="h-[15px] w-[15px]" />
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* SPAREPART DISTRIBUTION */}
+            {/* =====================================================
+                SPAREPART DISTRIBUTION
+            ===================================================== */}
+
             <div className="relative mt-14 overflow-hidden rounded-[26px] bg-[#1F2329] p-6 text-white sm:rounded-[32px] sm:p-10 lg:p-12">
               <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border border-white/5" />
+
               <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full border border-white/5" />
 
               <div className="relative">
@@ -682,8 +740,8 @@ function App() {
                       </div>
 
                       {index !== distributionFlow.length - 1 && (
-                        <span className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 text-[#9CB6CD] lg:block">
-                          →
+                        <span className="absolute -right-[9px] top-1/2 z-10 hidden h-[18px] w-[18px] -translate-y-1/2 items-center justify-center rounded-full bg-[#1F2329] text-[#9CB6CD] lg:flex">
+                          <ArrowIcon className="h-3 w-3" />
                         </span>
                       )}
                     </div>
@@ -691,6 +749,7 @@ function App() {
                 </div>
 
                 {/* WHY PARTNER WITH US */}
+
                 <div className="mt-10 border-t border-white/10 pt-8">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9CB6CD]">
                     Why Partner With Us?
@@ -702,8 +761,8 @@ function App() {
                         key={item}
                         className="flex items-center gap-3 rounded-xl border border-white/10 px-4 py-3"
                       >
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#9CB6CD]/15 text-[10px] text-[#9CB6CD]">
-                          ✓
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#9CB6CD]/15 text-[#9CB6CD]">
+                          <CheckIcon className="h-3 w-3" />
                         </span>
 
                         <p className="text-xs font-medium text-white/70">
@@ -721,6 +780,7 @@ function App() {
         {/* =====================================================
             PARTNER NETWORK
         ===================================================== */}
+
         <section
           id="network"
           className="scroll-mt-20 bg-[#F6F7F8] py-20 sm:scroll-mt-24 sm:py-28 lg:py-32"
@@ -744,8 +804,8 @@ function App() {
                       {partner.number}
                     </span>
 
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#CBD1D8] text-[#365C7D]/60 transition group-hover:border-[#365C7D] group-hover:bg-[#365C7D] group-hover:text-white">
-                      ↗
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#CBD1D8] text-[#365C7D] transition duration-300 group-hover:border-[#365C7D] group-hover:bg-[#365C7D] group-hover:text-white">
+                      <ArrowUpRightIcon className="h-4 w-4" />
                     </span>
                   </div>
 
@@ -776,6 +836,7 @@ function App() {
         {/* =====================================================
             BUSINESS OPPORTUNITY
         ===================================================== */}
+
         <section
           id="opportunity"
           className="scroll-mt-20 py-20 sm:scroll-mt-24 sm:py-28 lg:py-32"
@@ -816,7 +877,7 @@ function App() {
                 >
                   Interested in Working With Us?
 
-                  <span className="transition group-hover:translate-x-1">
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
                     <ArrowIcon />
                   </span>
                 </a>
@@ -828,6 +889,7 @@ function App() {
         {/* =====================================================
             CONTACT
         ===================================================== */}
+
         <section
           id="contact"
           className="scroll-mt-20 pb-20 sm:scroll-mt-24 sm:pb-28"
@@ -928,6 +990,7 @@ function App() {
       {/* =====================================================
           FOOTER
       ===================================================== */}
+
       <footer className="border-t border-[#CBD1D8] bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
           <div className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
