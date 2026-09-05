@@ -46,22 +46,22 @@ jobs:
           echo "🚀 [CI/CD] Starting AutomotiveSolution Deployment on Homelab..."
 
           # 1. Pastikan hierarki direktori homelab tersedia
-          mkdir -p /opt/apps/AutomotiveSolution
-          mkdir -p /opt/homelab/compose/automotive-solution
-          mkdir -p /opt/homelab/compose/nginx/conf.d
+          mkdir -p /home/storage/apps/AutomotiveSolution
+          mkdir -p /home/storage/homelab/compose/automotive-solution
+          mkdir -p /home/storage/homelab/compose/nginx/conf.d
 
-          # 2. Sinkronkan source code terbaru ke /opt/apps/AutomotiveSolution
-          echo "📦 Syncing source code to /opt/apps/AutomotiveSolution..."
-          rsync -a --delete --exclude '.git' ./ /opt/apps/AutomotiveSolution/
+          # 2. Sinkronkan source code terbaru ke /home/storage/apps/AutomotiveSolution
+          echo "📦 Syncing source code to /home/storage/apps/AutomotiveSolution..."
+          rsync -a --delete --exclude '.git' ./ /home/storage/apps/AutomotiveSolution/
 
           # 3. Sinkronkan konfigurasi Compose & Nginx
           echo "⚙️ Syncing Compose and Nginx configs..."
-          cp docker/compose.yml /opt/homelab/compose/automotive-solution/compose.yml
-          cp docker/nginx-automotive.conf /opt/homelab/compose/nginx/conf.d/automotive.conf
+          cp docker/compose.yml /home/storage/homelab/compose/automotive-solution/compose.yml
+          cp docker/nginx-automotive.conf /home/storage/homelab/compose/nginx/conf.d/automotive.conf
 
           # 4. Build dan jalankan container baru
           echo "🐳 Building and updating container..."
-          cd /opt/homelab/compose/automotive-solution
+          cd /home/storage/homelab/compose/automotive-solution
           docker compose up -d --build --remove-orphans
 
           # 5. Reload master Nginx reverse proxy
