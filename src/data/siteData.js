@@ -1,53 +1,62 @@
 export const company = {
-  legalName: "PT Wastu Widya Wasesa",
-  businessName: "Automotive Solution",
-
+  brandName: "Berkah Alam Group",
+  legalName: "CV Berkah Alam Berkarya",
+  tagline: "Integrated Construction, Interior & Building Solutions",
   address:
-    "Jl. Mutiara No.95 Demangan, Gondokusuman, D.I Yogyakarta",
-
-  whatsapp: [
-    {
-      label: "WhatsApp 1",
-      display: "0852-2666-2899",
-      number: "6285226662899",
-    },
-    {
-      label: "WhatsApp 2",
-      display: "0899-8857-329",
-      number: "628998857329",
-    },
-  ],
+    "Gang Mustika Candibaru RT 034/000, Plumbungan, Karangmalang, Sragen 57221, Jawa Tengah",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Gang%20Mustika%20Candibaru%20RT%20034%2F000%2C%20Plumbungan%2C%20Karangmalang%2C%20Sragen%2057221%2C%20Jawa%20Tengah",
+  director: "Rulhy Adhy Sixnata",
+  deed: "Akta Pendirian No. 07 — 05 Oktober 2023",
 }
 
-export const partnerTypes = [
+export const businessPillars = [
   {
-    title: "Workshop Partner",
+    number: "01",
+    title: "Konstruksi & Renovasi",
+    short: "Construction",
     description:
-      "Kolaborasi dengan bengkel untuk mendukung kebutuhan service, maintenance, dan supply produk automotive.",
+      "Pelaksanaan pembangunan, renovasi, pekerjaan sipil, finishing, dan penyempurnaan bangunan sesuai kebutuhan proyek.",
   },
   {
-    title: "Sparepart Partner",
+    number: "02",
+    title: "Interior & Eksterior",
+    short: "Interior",
     description:
-      "Jaringan penyedia dan penjual sparepart untuk memperluas akses terhadap kebutuhan automotive.",
+      "Solusi interior, eksterior, dekorasi, furnishing, lantai, dinding, plafon, dan elemen finishing untuk berbagai jenis ruang.",
   },
   {
-    title: "Reseller Partner",
+    number: "03",
+    title: "Material & Pengadaan",
+    short: "Supply",
     description:
-      "Kemitraan dengan pelaku usaha yang mengembangkan penjualan produk automotive di area masing-masing.",
+      "Penyediaan material bangunan, material dekoratif, furnishing, serta kebutuhan pengadaan untuk mendukung pelaksanaan proyek.",
+  },
+]
+
+export const materialCategories = [
+  {
+    title: "WPC Outdoor",
+    subtitle: "Decking • Cladding • Timber Tube",
   },
   {
-    title: "Stockist Partner",
-    description:
-      "Pengembangan titik penyimpanan dan ketersediaan produk untuk mendukung kebutuhan pasar lokal.",
+    title: "WPC Interior",
+    subtitle: "Fluted • Bamboo Charcoal • Decorative Panel",
   },
   {
-    title: "Distribution Partner",
-    description:
-      "Kolaborasi distribusi untuk memperluas jangkauan produk dan memperkuat supply chain.",
+    title: "SPC Flooring",
+    subtitle: "Flooring & Finishing",
   },
   {
-    title: "Automotive Partner",
-    description:
-      "Kolaborasi dengan berbagai pelaku usaha automotive untuk menciptakan ekosistem bisnis yang saling terhubung.",
+    title: "Sierra Panel",
+    subtitle: "Decorative Surface",
+  },
+  {
+    title: "Lumia Panel",
+    subtitle: "Onyx Translucent Panel",
+  },
+  {
+    title: "Flextone",
+    subtitle: "Flexible Surface Material",
   },
 ]
