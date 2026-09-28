@@ -1,10 +1,10 @@
 services:
-  automotive-solution:
+  berkah-alam:
     build:
-      context: /home/storage/apps/AutomotiveSolution
+      context: /home/storage/apps/berkah-alam
       dockerfile: Dockerfile
-    image: automotive-solution:latest
-    container_name: automotive-solution
+    image: berkah-alam:latest
+    container_name: berkah-alam
     restart: unless-stopped
     ports:
       - "3005:80"

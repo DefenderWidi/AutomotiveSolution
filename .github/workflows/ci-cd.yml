@@ -1,4 +1,4 @@
-name: Automotive Solution CI/CD
+name: Berkah Alam CI/CD
 
 on:
   push:
@@ -43,33 +43,38 @@ jobs:
 
       - name: Deploy Docker Service & Reload Nginx
         run: |
-          echo "🚀 [CI/CD] Starting AutomotiveSolution Deployment on Homelab..."
+          echo "🚀 [CI/CD] Starting Berkah Alam Deployment on Homelab..."
 
-          # 1. Pastikan hierarki direktori homelab tersedia
-          mkdir -p /home/storage/apps/AutomotiveSolution
-          mkdir -p /home/storage/homelab/compose/automotive-solution
+          # 1. Bersihkan service lama automotive-solution jika ada untuk mencegah konflik port & routing
+          docker stop automotive-solution 2>/dev/null || true
+          docker rm automotive-solution 2>/dev/null || true
+          rm -f /home/storage/homelab/compose/nginx/conf.d/automotive.conf
+
+          # 2. Pastikan hierarki direktori homelab tersedia
+          mkdir -p /home/storage/apps/berkah-alam
+          mkdir -p /home/storage/homelab/compose/berkah-alam
           mkdir -p /home/storage/homelab/compose/nginx/conf.d
 
-          # 2. Sinkronkan source code terbaru ke /home/storage/apps/AutomotiveSolution
-          echo "📦 Syncing source code to /home/storage/apps/AutomotiveSolution..."
-          rsync -a --delete --exclude '.git' ./ /home/storage/apps/AutomotiveSolution/
+          # 3. Sinkronkan source code terbaru ke /home/storage/apps/berkah-alam
+          echo "📦 Syncing source code to /home/storage/apps/berkah-alam..."
+          rsync -a --delete --exclude '.git' ./ /home/storage/apps/berkah-alam/
 
-          # 3. Sinkronkan konfigurasi Compose & Nginx
+          # 4. Sinkronkan konfigurasi Compose & Nginx
           echo "⚙️ Syncing Compose and Nginx configs..."
-          cp docker/compose.yml /home/storage/homelab/compose/automotive-solution/compose.yml
-          cp docker/nginx-automotive.conf /home/storage/homelab/compose/nginx/conf.d/automotive.conf
+          cp docker/compose.yml /home/storage/homelab/compose/berkah-alam/compose.yml
+          cp docker/nginx-berkah-alam.conf /home/storage/homelab/compose/nginx/conf.d/berkah-alam.conf
 
-          # 4. Build dan jalankan container baru
+          # 5. Build dan jalankan container baru
           echo "🐳 Building and updating container..."
-          cd /home/storage/homelab/compose/automotive-solution
+          cd /home/storage/homelab/compose/berkah-alam
           docker compose up -d --build --remove-orphans
 
-          # 5. Reload master Nginx reverse proxy
+          # 6. Reload master Nginx reverse proxy
           echo "🌐 Reloading Master Nginx Proxy..."
           docker exec nginx nginx -s reload || true
 
-          # 6. Verifikasi container aktif
+          # 7. Verifikasi container aktif
           echo "🔍 Checking container status..."
-          docker ps --filter "name=automotive-solution" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+          docker ps --filter "name=berkah-alam" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
-          echo "✅ [CI/CD] AutomotiveSolution Deployed Successfully on Homelab!"
+          echo "✅ [CI/CD] Berkah Alam Deployed Successfully on Homelab!"
